@@ -7,6 +7,375 @@
     <link rel="stylesheet" href="styles.css">
     <script defer src="script.js"></script>
 <style>
+    /* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: indianred
+}
+/* Header and Logo */
+#logo {
+    height: 120px;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#zedrick {
+    font-size: 2rem;
+    animation: colorChange 2s infinite;
+}
+
+#salupito {
+    font-size: 2rem;
+    animation: rotateColors 3s infinite linear;
+}
+
+/* Keyframes for animations */
+@keyframes colorChange {
+    0% { color: red; }
+    33% { color: green; }
+    66% { color: yellow; }
+    100% { color: red; }
+}
+
+@keyframes rotateColors {
+    0% { transform: rotate(0); color: #ca1; }
+    33% { transform: rotate(120deg); color: #1cd; }
+    66% { transform: rotate(240deg); color: maroon; }
+    100% { transform: rotate(360deg); color: blue; }
+}
+
+/* Navigation Bar */
+nav ul {
+    background-color: navajowhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    list-style: none;
+}
+
+nav ul li {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2rem;
+}
+a {
+    text-decoration: none;
+}
+/* About Section */
+#about {
+    padding: 50px;
+    text-align: center;
+}
+
+#about img {
+    height: 150px;
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+#about p {
+    font-size: 1rem;
+    margin: 10px 0;
+}
+
+/* Services Section */
+#services {
+    background-color: #f4f4f4;
+    padding: 50px;
+    text-align: center;
+}
+
+#services .service {
+    margin-bottom: 30px;
+}
+
+#services h3 {
+    margin-bottom: 10px;
+}
+
+#services ul {
+    list-style: none;
+}
+
+/* Skills Section */
+#skills {
+    padding: 50px;
+    text-align: center;
+}
+
+.skill-category {
+    margin-bottom: 30px;
+}
+
+.skill-category ul {
+    list-style: none;
+}
+
+/* Projects Section */
+#projects {
+    background-color: #f4f4f4;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+.project {
+    margin-bottom: 30px;
+}
+/* Sky Background */
+.sky {
+    height: 200px;
+    background: linear-gradient(to top, #87CEEB, #fff);
+    overflow: hidden;
+    position: relative;
+}
+
+/* Dove Structure */
+.dove {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 50%;
+    left: -50px;
+    transform: translateY(-50%);
+    animation: fly 10s linear infinite;
+}
+
+.body {
+    width: 20px;
+    height: 40px;
+    background: white;
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.wing {
+    width: 30px;
+    height: 40px;
+    background: white;
+    position: absolute;
+    top: 50%;
+    transform-origin: top center;
+    animation: flap 0.5s ease-in-out infinite alternate;
+}
+
+.left-wing {
+    border-radius: 30% 70% 50% 50%;
+    left: -15px;
+}
+
+.right-wing {
+    border-radius: 70% 30% 50% 50%;
+    right: -15px;
+}
+
+.beak {
+    width: 10px;
+    height: 10px;
+    background: orange;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    clip-path: polygon(0% 50%, 100% 50%, 50% 0%);
+}
+
+.eye {
+    width: 5px;
+    height: 5px;
+    background: black;
+    border-radius: 50%;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-left: -8px;
+}
+
+.tail {
+    width: 30px;
+    height: 10px;
+    background: white;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(15deg);
+    clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+}
+/* Sky2 Background */
+.sky2 {
+    width: 100vw;
+    height: 300px;
+    background: linear-gradient(to top, #001f3f, #000000);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Lightning Effect */
+.lightning {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    width: 2px;
+    height: 500px;
+    background: white;
+    transform: translateX(-50%);
+    animation: lightningStrike 3s infinite;
+    opacity: 0;
+}
+
+/* Lightning Animation */
+@keyframes lightningStrike {
+    0%, 90% {
+        opacity: 0;
+    }
+    92%, 94% {
+        opacity: 1;
+        height: 500px;
+        background: white;
+        box-shadow: 0 0 20px white;
+    }
+    95% {
+        opacity: 1;
+        height: 700px;
+        background: yellow;
+        box-shadow: 0 0 40px yellow;
+    }
+    96%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Optional: Ground Effect */
+.ground {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background: #333;
+    box-shadow: 0 0 10px 5px #000;
+}
+
+/* Container */
+.container {
+    width: 100vw;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Ball Styling */
+.ball {
+    width: 50px;
+    height: 50px;
+    background-color: #ff5722;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+/* Bouncing Animation */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-150px);
+    }
+    60% {
+        transform: translateY(-75px);
+    }
+}
+
+/* Keyframe Animations */
+@keyframes flap {
+    0% { transform: rotate(0); }
+    100% { transform: rotate(20deg); }
+}
+
+@keyframes fly {
+    0% { left: -50px; top: 50%; }
+    25% { top: 30%; }
+    50% { top: 50%; }
+    75% { top: 70%; }
+    100% { left: 100vw; top: 50%; }
+}
+
+
+/* Contact Section */
+#contact {
+    padding: 50px;
+    text-align: center;
+}
+
+.contact-info {
+    margin-bottom: 20px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+form input, form textarea {
+    display: block;
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+}
+form textarea {
+    height: 200px;
+}
+form button {
+    padding: 10px 20px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Footer Section */
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+footer h1 {
+    color: #aa1;
+    margin: 10px;
+    font-weight: 2000;
+}
+.socials a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.socials a:hover {
+    color: #1cd;
+}
 </style>
 </head>
 <body>
